@@ -1,18 +1,51 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="gamemaster">
+    <div id="game">
+      <Game />
+    </div>
+
+    <div id="border"></div>
+    <div id="input">
+      <Chat />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import Chat from '@/components/Chat.vue';
+import Game from '@/components/Game.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    Chat,
+    Game,
   },
 };
 </script>
+
+<style>
+  #gamemaster {
+    font-family: 'Trebuchet MS';
+    text-align: left;
+    background-color: black;
+    color: cyan;
+    display: flex;
+  }
+  #game {
+    width: 80vw;
+    height: 100vh;
+  }
+  #input {
+    width: 20vw;
+    height: 100vh;
+  }
+  #border {
+    border-right: 2px solid cyan;
+  }
+  * {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+</style>
