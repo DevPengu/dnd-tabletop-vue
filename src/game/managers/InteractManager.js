@@ -17,8 +17,10 @@ export default class InteractManager {
 
     this.scaleObjects = [];
 
+    this.pointerDragged = false;
+
     scene.input.on('drag', (pointer, gameObject, dragX, dragY) => {
-      gameObject.wasDragged = true;
+      this.pointerDragged = true;
 
       this.moveObject(gameObject, dragX, dragY);
     });
@@ -37,13 +39,13 @@ export default class InteractManager {
     });
 
     scene.input.on('gameobjectup', (pointer, gameObject) => {
-      if (!gameObject.wasDragged && !gameObject.isScaleObject && gameObject !== this.selectedObject) {
+      if (!this.pointerDragged && !gameObject.isScaleObject && gameObject !== this.selectedObject) {
         this.selectedObject = gameObject;
 
         scene.menuManager.showMenu(gameObject);
       }
 
-      gameObject.wasDragged = false;
+      this.pointerDragged = false;
     });
 
     scene.input.on('gameobjectdown', (pointer, gameObject) => {

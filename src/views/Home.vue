@@ -1,6 +1,6 @@
 <template>
   <div id="gamemaster">
-    <div id="game">
+    <div id="game" @contextmenu.prevent="handler">
       <Game />
     </div>
 
@@ -20,6 +20,11 @@ export default {
   components: {
     Chat,
     Game,
+  },
+  methods: {
+    handler(e) {
+      e.preventDefault();
+    },
   },
 };
 </script>

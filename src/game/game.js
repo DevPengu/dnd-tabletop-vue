@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import GameScene from './scenes/gamescene';
+import GameScene from './scenes/gameScreen';
 
 function launch(containerId) {
   return new Phaser.Game({
